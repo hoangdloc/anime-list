@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-// ...
+import homePageSlice from './containers/HomePage/homePageSlice';
+import ReduxLogger from 'redux-logger';
 
 export const store = configureStore({
-  reducer: {}
+  reducer: {
+    homePage: homePageSlice
+  },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(ReduxLogger)
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
